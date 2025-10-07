@@ -4,7 +4,7 @@ from pathlib import Path
 from io import BytesIO
 
 # === Настройки ===
-EXCEL_PATH = Path("data.xlsx")  # Excel-файл должен быть в той же папке
+EXCEL_PATH = Path("Data.xlsx")  # Excel-файл должен быть в той же папке
 
 st.set_page_config(page_title="Анализ данных FF", layout="wide")
 st.title("📊 Анализ данных FF")
