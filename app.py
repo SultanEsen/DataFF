@@ -33,9 +33,18 @@ for i, col_name in enumerate(df.columns):
             if selected:
                 filters[col_name] = selected
 
+
 filtered_df = df.copy()
 for col, vals in filters.items():
     filtered_df = filtered_df[filtered_df[col].isin(vals)]
+
+st.subheader("➕ Добавление колонки 'Сумма'")
+
+sum_columns = st.multiselect("Выберите столбцы для суммирования", filtered_df.columns)
+
+if sum_columns:
+    filtered_df["Сумма"] = filtered_df[sum_columns].sum(axis=1)
+    st.dataframe(filtered_df, use_container_width=True)
 
 st.write(f"**Отфильтровано строк:** {len(filtered_df)} из {len(df)}")
 
