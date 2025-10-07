@@ -17,8 +17,8 @@ if not EXCEL_PATH.exists():
 df = pd.read_excel(EXCEL_PATH)
 
 # --- Отображение исходных данных ---
-st.subheader("Исходные данные")
-st.dataframe(df, use_container_width=True)
+# st.subheader("Исходные данные")
+# st.dataframe(df, use_container_width=True)
 
 # === Фильтрация ===
 st.subheader("🔍 Фильтрация данных")
@@ -39,16 +39,16 @@ for col, vals in filters.items():
 
 st.write(f"**Отфильтровано строк:** {len(filtered_df)} из {len(df)}")
 
-# === Выбор отображаемых полей ===
-st.subheader("📋 Выбор колонок для отображения")
+# # === Выбор отображаемых полей ===
+# st.subheader("📋 Выбор колонок для отображения")
+#
+# columns_to_show = st.multiselect(
+#     "Выберите поля для таблицы",
+#     options=filtered_df.columns.tolist(),
+#     default=filtered_df.columns.tolist()[:5]
+# )
 
-columns_to_show = st.multiselect(
-    "Выберите поля для таблицы",
-    options=filtered_df.columns.tolist(),
-    default=filtered_df.columns.tolist()[:5]
-)
-
-st.dataframe(filtered_df[columns_to_show], use_container_width=True)
+# st.dataframe(filtered_df[columns_to_show], use_container_width=True)
 
 # === Сводная таблица ===
 st.subheader("📈 Двумерная сводная таблица (Pivot Table)")
